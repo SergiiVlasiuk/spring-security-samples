@@ -4,8 +4,9 @@ spring:
     username: postgres
     password: postgres
     # always embedded never
-    initialization-mode: never
-#    initialization-mode: always
+    ### in case data base is already initialised use 'never' mode than
+#    initialization-mode: never
+    initialization-mode: always
   jpa:
     show-sql: true
 

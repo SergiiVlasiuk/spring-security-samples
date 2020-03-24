@@ -51,3 +51,50 @@ create table acl_entry(
     constraint foreign_fk_4 foreign key(acl_object_identity) references acl_object_identity(id),
     constraint foreign_fk_5 foreign key(sid) references acl_sid(id)
 );
+
+CREATE TABLE oauth_client_details (
+    client_id VARCHAR(255) PRIMARY KEY,
+    resource_ids VARCHAR(255),
+    client_secret VARCHAR(255),
+    scope VARCHAR(255),
+    authorized_grant_types VARCHAR(255),
+    web_server_redirect_uri VARCHAR(255),
+    authorities VARCHAR(255),
+    access_token_validity INTEGER,
+    refresh_token_validity INTEGER,
+    additional_information VARCHAR(4096),
+    autoapprove VARCHAR(255)
+);
+-- ALTER TABLE oauth_client_details OWNER TO postgres;
+
+CREATE TABLE oauth_client_token (
+    token_id VARCHAR(255),
+    token bytea,
+    authentication_id VARCHAR(255),
+    user_name VARCHAR(255),
+    client_id VARCHAR(255)
+);
+-- ALTER TABLE oauth_client_token OWNER TO postgres;
+
+CREATE TABLE oauth_access_token (
+    token_id VARCHAR(255),
+    token bytea,
+    authentication_id VARCHAR(255),
+    user_name VARCHAR(255),
+    client_id VARCHAR(255),
+    authentication bytea,
+    refresh_token VARCHAR(255)
+);
+-- ALTER TABLE oauth_access_token OWNER TO postgres;
+
+CREATE TABLE oauth_refresh_token (
+    token_id VARCHAR(255),
+    token bytea,
+    authentication bytea
+);
+-- ALTER TABLE oauth_refresh_token OWNER TO postgres;
+
+CREATE TABLE oauth_code (
+    code VARCHAR(255), authentication bytea
+);
+-- ALTER TABLE oauth_code OWNER TO postgres;

@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootApplication
 @Configuration
 @ComponentScan
-public class OauthServerApplication {
+public class Oauth2ServerPostgresExampleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OauthServerApplication.class, args);
+        SpringApplication.run(Oauth2ServerPostgresExampleApplication.class, args);
     }
 }
