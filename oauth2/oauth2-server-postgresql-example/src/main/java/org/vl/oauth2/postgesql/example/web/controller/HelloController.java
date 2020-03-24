@@ -1,6 +1,7 @@
 package org.vl.oauth2.postgesql.example.web.controller;
 
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,12 @@ public class HelloController {
     @PostAuthorize("hasRole('CLIENT')")
     public String authorizedHello() {
         return "authorized hello";
+    }
+
+    @GetMapping("authorized-read")
+    @PreAuthorize("#oauth2.hasScope('AUTHORIZED_READ')")
+    public String withAuthorityHello() {
+        return "AUTHORIZED_READ scope restriction";
     }
 
     @GetMapping("me")

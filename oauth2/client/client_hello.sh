@@ -15,3 +15,6 @@ echo
 
 curl localhost:8090/hello/authorized -H "Authorization: Bearer $TOKEN"
 echo
+
+curl localhost:8090/hello/authorized-read -H "Authorization: Bearer $TOKEN"
+echo
